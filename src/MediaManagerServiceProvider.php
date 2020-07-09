@@ -68,12 +68,12 @@ class MediaManagerServiceProvider extends ServiceProvider
 
         // resources
         $this->publishes([
-            __DIR__ . '/assets' => resource_path('assets/vendor/MediaManager'),
+            __DIR__ . '/assets' => resource_path('MediaManager'),
         ], 'MediaManager-assets');
 
         // public
         $this->publishes([
-            __DIR__ . '/../public' => public_path($this->publicPath),
+            __DIR__ . '/../public' => public_path(),
         ], 'MediaManager-public');
     }
 

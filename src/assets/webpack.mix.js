@@ -1,6 +1,6 @@
 const mix = require('laravel-mix');
 
-let public_path = '../../public';
+let public_path = '../../public/assets/vendor/MediaManager';
 mix.setPublicPath(public_path);
 mix.setResourceRoot('/assets/vendor/MediaManager');
 mix.webpackConfig({
