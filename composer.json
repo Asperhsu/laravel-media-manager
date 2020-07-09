@@ -1,0 +1,34 @@
+{
+    "name": "asperhsu/laravel-media-manager",
+    "description": "",
+    "keywords": [
+        "asperhsu",
+        "laravel-media-manager"
+    ],
+    "homepage": "https://github.com/asperhsu/laravel-media-manager",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Asper",
+            "email": "asperwon@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Asperhsu\\LaravelMediaManager\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Asperhsu\\LaravelMediaManager\\LaravelMediaManagerServiceProvider"
+            ]
+        }
+    }
+}
