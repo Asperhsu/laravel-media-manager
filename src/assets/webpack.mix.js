@@ -11,7 +11,7 @@ mix.webpackConfig({
 
 // MediaManager
 mix.js(__dirname + '/js/app.js', 'app.js')
-    .sass(__dirname + '/sass/app.scss', 'app.css')
+    .sass(__dirname + '/sass/app.scss', 'style.css')
     .copyDirectory(__dirname + '/MediaManager/dist', public_path)
 
 if (mix.inProduction()) {

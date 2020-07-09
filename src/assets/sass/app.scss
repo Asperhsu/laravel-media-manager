@@ -1,0 +1,10 @@
+.no-scroll {
+    overflow: hidden;
+}
+
+.media-manager-container {
+    box-sizing: border-box;
+
+    @import '~bulma';
+    @import '../MediaManager/sass/manager.scss';
+}

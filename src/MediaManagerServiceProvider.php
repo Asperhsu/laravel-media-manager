@@ -9,13 +9,21 @@ class MediaManagerServiceProvider extends ServiceProvider
     protected $vendorDir;
     protected $publicPath = 'assets/vendor/MediaManager';
 
-    public function __construct()
+    public function __construct($app)
     {
+        parent::__construct($app);
+
         $this->vendorDir = realpath(__DIR__ . '/../ctf0/media-manager/src/');
     }
 
     public function boot()
     {
+        $this->loadMigrationsFrom($this->vendorDir . '/database/migrations');
+        $this->loadTranslationsFrom($this->vendorDir . '/resources/lang', 'MediaManager');
+
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'MediaManager');
+        $this->loadViewsFrom($this->vendorDir . '/resources/views', 'MediaManager');
+
         $this->viewCompose();
 
         if ($this->app->runningInConsole()) {
@@ -36,39 +44,37 @@ class MediaManagerServiceProvider extends ServiceProvider
         // config
         $this->publishes([
             $this->vendorDir . '/config' => config_path(),
-        ], 'config');
+        ], 'MediaManager-config');
 
         // database
         $this->publishes([
             $this->vendorDir . '/database/MediaManager.sqlite' => database_path('MediaManager.sqlite'),
-        ], 'db');
+        ], 'MediaManager-db');
 
-        $this->loadMigrationsFrom($this->vendorDir . '/database/migrations');
         $this->publishes([
             $this->vendorDir . '/database/migrations' => database_path('migrations'),
-        ], 'migration');
+        ], 'MediaManager-migration');
 
         // trans
-        $this->loadTranslationsFrom($this->vendorDir . '/resources/lang', 'MediaManager');
         $this->publishes([
             $this->vendorDir . '/resources/lang' => resource_path('lang/vendor/MediaManager'),
-        ], 'trans');
+        ], 'MediaManager-trans');
 
         // views
-        $this->loadViewsFrom($this->vendorDir . '/resources/views', 'MediaManager');
         $this->publishes([
             $this->vendorDir . '/resources/views' => resource_path('views/vendor/MediaManager'),
-        ], 'view');
+            __DIR__ . '/resources/views' => resource_path('views/vendor/MediaManager'),
+        ], 'MediaManager-view');
 
         // resources
         $this->publishes([
-            __DIR__ . '/resources/assets' => resource_path('assets/vendor/MediaManager'),
-        ], 'assets');
+            __DIR__ . '/assets' => resource_path('assets/vendor/MediaManager'),
+        ], 'MediaManager-assets');
 
         // public
         $this->publishes([
             __DIR__ . '/../public' => public_path($this->publicPath),
-        ], 'public');
+        ], 'MediaManager-public');
     }
 
     protected function viewCompose()
