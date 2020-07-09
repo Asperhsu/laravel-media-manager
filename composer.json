@@ -16,18 +16,24 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-        "illuminate/support": "^6.0"
+        "php": "~7.0",
+        "illuminate/support": "^5.4 || ^6.0 || ^7.0",
+        "maennchen/zipstream-php": "~1.0",
+        "jhofm/flysystem-iterator": "^2.2"
     },
     "autoload": {
         "psr-4": {
-            "Asperhsu\\LaravelMediaManager\\": "src"
+            "Asperhsu\\LaravelMediaManager\\": "src",
+            "ctf0\\MediaManager\\": "ctf0/media-manager/src"
         }
+    },
+    "config": {
+        "sort-packages": true
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Asperhsu\\LaravelMediaManager\\LaravelMediaManagerServiceProvider"
+                "Asperhsu\\LaravelMediaManager\\MediaManagerServiceProvider"
             ]
         }
     }

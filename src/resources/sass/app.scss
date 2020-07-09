@@ -1,0 +1,19 @@
+.no-scroll {
+    overflow: hidden;
+}
+
+.media-manager-container {
+    @import '~bulma';
+    @import '../MediaManager/sass/manager.scss';
+
+    .modal {
+        z-index: 1050;
+        position: fixed;
+    }
+    .modal-content {
+        height: auto;
+    }
+    .modal-manager__Inmodal > .modal-content {
+        width: 93%;
+    }
+}
