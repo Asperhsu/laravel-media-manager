@@ -161,6 +161,13 @@ export default {
         dbltap(e) {
             PreventGhostClick(e.target)
 
+            // close modal when in modal
+            if (this.inModal && this.$parent && !this.isBulkSelecting() && !this.selectedFileIs('folder')) {
+                this.$parent.hideInputModal();
+                setTimeout(() => this.noScroll('remove'), 300);
+                return;
+            }
+
             if (!this.isBulkSelecting()) {
                 // image / text
                 if (this.selectedFileIs('image') || this.selectedFileIs('pdf') || this.textFileType()) {
