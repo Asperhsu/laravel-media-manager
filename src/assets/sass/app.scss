@@ -8,6 +8,9 @@
     @import '~bulma';
     @import '../MediaManager/sass/manager.scss';
 
+    .modal {
+        position: fixed;
+    }
     .modal-content {
         height: auto;   // vertial align middle
     }

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img v-if="path" :src="path">
+        <img v-if="path" :src="path" style="max-height: 30vh;">
         <button @click="emitManager">select cover</button>
         <p>selected: {{  this.path }}</p>
     </div>
